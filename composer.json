@@ -37,7 +37,7 @@
     "extra": {
       "laravel": {
         "providers": [
-          "Gogain\\LaravelPhoneVerification\\Providers\\LaravelExampleServiceProvider.php"
+          "\\Gogain\\LaravelPhoneVerification\\Providers\\LaravelExampleServiceProvider"
         ]
       }
     }
