@@ -3,7 +3,7 @@
 namespace Gogain\LaravelPhoneVerification\Test;
 
 use PHPUnit\Framework\TestCase;
-use Curkan\LaravelPhoneVerification\ExampleService;
+use Gogain\LaravelPhoneVerification\ExampleService;
 
 class ExampleServiceTest extends TestCase
 {

@@ -16,7 +16,7 @@ class FeatureTestCase extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            'Curkan\LaravelPhoneVerification\Providers\LaravelExampleServiceProvider',
+            'Gogain\LaravelPhoneVerification\Providers\LaravelExampleServiceProvider',
         ];
     }
 

@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-          "Curkan\\LaravelPhoneVerification\\": "src/"
+          "Gogain\\LaravelPhoneVerification\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-          "Curkan\\LaravelPhoneVerification\\Test\\": "tests/"
+          "Gogain\\LaravelPhoneVerification\\Test\\": "tests/"
         }
     },
     "scripts": {
@@ -38,7 +38,7 @@
     "extra": {
       "laravel": {
         "providers": [
-          "Curkan\\LaravelPhoneVerification\\Providers\\EloquentFilterServiceProvider"
+          "Gogain\\LaravelPhoneVerification\\Providers\\EloquentFilterServiceProvider"
         ]
       }
     }

@@ -3,7 +3,7 @@
 namespace Gogain\LaravelPhoneVerification\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Curkan\LaravelPhoneVerification\Console\Commands\ExampleCommand;
+use Gogain\LaravelPhoneVerification\Console\Commands\ExampleCommand;
 
 class LaravelExampleServiceProvider extends ServiceProvider
 {
