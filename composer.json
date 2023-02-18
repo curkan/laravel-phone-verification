@@ -2,6 +2,7 @@
     "name": "gogain/laravel-phone-verification",
     "description": "SMS phone verification component",
     "type": "composer-plugin",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Nikita Tsurkan",
