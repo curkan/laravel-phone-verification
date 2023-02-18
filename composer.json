@@ -1,7 +1,7 @@
 {
     "name": "gogain/laravel-phone-verification",
     "description": "SMS phone verification component",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "license": "MIT",
     "type": "composer-plugin",
     "authors": [
