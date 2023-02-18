@@ -1,6 +1,6 @@
 <?php
 
-namespace Curkan\LaravelPhoneVerification\Models;
+namespace Gogain\LaravelPhoneVerification\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

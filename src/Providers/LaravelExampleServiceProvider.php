@@ -1,6 +1,6 @@
 <?php
 
-namespace Curkan\LaravelPhoneVerification\Providers;
+namespace Gogain\LaravelPhoneVerification\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Curkan\LaravelPhoneVerification\Console\Commands\ExampleCommand;

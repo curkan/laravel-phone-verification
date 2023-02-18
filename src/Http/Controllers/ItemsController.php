@@ -1,8 +1,8 @@
 <?php
 
-namespace Curkan\LaravelPhoneVerification\Http\Controllers;
+namespace Gogain\LaravelPhoneVerification\Http\Controllers;
 
-use Curkan\LaravelPhoneVerification\Models\Item;
+use Gogain\LaravelPhoneVerification\Models\Item;
 
 class ItemsController
 {

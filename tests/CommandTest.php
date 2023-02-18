@@ -1,6 +1,6 @@
 <?php
 
-namespace Curkan\LaravelPhoneVerification\Test;
+namespace Gogain\LaravelPhoneVerification\Test;
 
 class CommandTest extends FeatureTestCase
 {

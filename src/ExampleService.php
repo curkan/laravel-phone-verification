@@ -1,6 +1,6 @@
 <?php
 
-namespace Curkan\LaravelPhoneVerification;
+namespace Gogain\LaravelPhoneVerification;
 
 class ExampleService
 {

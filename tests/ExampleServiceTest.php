@@ -1,6 +1,6 @@
 <?php
 
-namespace Curkan\LaravelPhoneVerification\Test;
+namespace Gogain\LaravelPhoneVerification\Test;
 
 use PHPUnit\Framework\TestCase;
 use Curkan\LaravelPhoneVerification\ExampleService;
