@@ -15,7 +15,7 @@ class SmsController
     {
         if (is_null($request->get('phone_number'))) {
             throw new Exception('Phone field cannot be empty', 0, null);
-        };
+        }
 
         $result = SmsVerification::sendCode($request->get('phone_number'), $this->getSender());
 
@@ -27,6 +27,14 @@ class SmsController
 
     public function checkCode($code, $phoneNumber)
     {
+        if (empty($code)) {
+            throw new Exception('Code field cannot be empty', 0, null);
+        }
+
+        if (empty($phoneNumber)) {
+            throw new Exception('Phone field cannot be empty', 0, null);
+        }
+
         $result = SmsVerification::checkCode($code, $phoneNumber);
         return $result; 
     }

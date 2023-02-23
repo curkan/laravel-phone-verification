@@ -110,7 +110,7 @@ class SmsVerification
             "\+?[2-9]\d{9,}", // International
         ];
         if (!@preg_match("/^(" . implode('|', $patterns) . ")\$/", $phoneNumber)) {
-            throw new ValidationException('Incorrect phone number was provided');
+            throw ValidationException::withMessages(['Incorrect phone number was provided']);
         }
     }
 
