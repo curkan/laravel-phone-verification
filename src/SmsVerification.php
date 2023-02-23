@@ -33,9 +33,9 @@ class SmsVerification
             $resendCode = false;
 
             if (count($phone->get()) !== 0) {
-                if ($phone->where('status', false)->get()) {
+                if (count($phone->where('status', false)->get()) === 1) {
                     $resendCode = true;
-                } else{
+                } else {
                     throw ValidationException::withMessages(['Phone already verified']);
                 }
             }
