@@ -29,17 +29,6 @@ class SmsVerification
                 throw ValidationException::withMessages(['You cannot send a message more often than allowed']);
             }
 
-            // $phone = Phone::where('phone', $phoneNumber);
-            // $resendCode = false;
-            //
-            // if (count($phone->get()) !== 0) {
-            //     if (count($phone->where('status', false)->get()) === 1) {
-            //         $resendCode = true;
-            //     } else {
-            //         throw ValidationException::withMessages(['Phone already verified']);
-            //     }
-            // }
-
             $codeProcessor = new CodeProcessor();
 
             $code = $codeProcessor->generateCode($phoneNumber);
@@ -47,17 +36,6 @@ class SmsVerification
             $text = $code . ' - ваш код подтверждения';
 
             $success = $sender->send($phoneNumber, $text, $code);
-
-            // if ($resendCode) {
-            //     $phone->update(['code' => $code]);
-            // } else {
-                // $phone = Phone::create([
-                //     'user_id' => 0,
-                //     'code' => $code,
-                //     'status' => 0,
-                //     'phone' => $phoneNumber
-                // ]);
-            // }
 
         } catch (\Exception $e) {
             $description = $e->getMessage();

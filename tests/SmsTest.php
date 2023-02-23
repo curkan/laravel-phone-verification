@@ -2,9 +2,7 @@
 
 namespace Gogain\LaravelPhoneVerification\Test;
 
-use Gogain\LaravelPhoneVerification\Models\Phone;
 use Illuminate\Support\Facades\Config as FacadesConfig;
-use Orchestra\Testbench\Foundation\Config;
 
 class SmsTest extends FeatureTestCase
 {
@@ -23,27 +21,6 @@ class SmsTest extends FeatureTestCase
 
         $response->assertStatus(201);
     }
-
-    /**
-     * @test
-     */
-    // public function test_send_sms_with_verfivied_phone()
-    // {
-    //     FacadesConfig::set('sms-verification.codeLength', 4);
-    //     FacadesConfig::set('sms-verification.codeLifetime', 60);
-    //
-    //     FacadesConfig::set('sms-verification.smsaero-email', 'example@gmail.com');
-    //     FacadesConfig::set('sms-verification.smsaero-apikey', 'testtest123123');
-    //
-    //     Phone::factory()->create([
-    //         'phone' => '79009009000',
-    //         'status' => true,
-    //     ]);
-    //
-    //     $response = $this->postJson(route('sms-verification', ['phone_number' => '79009009000']));
-    //
-    //     $response->assertStatus(422);
-    // }
 
     /**
      * @test

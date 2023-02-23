@@ -7,7 +7,7 @@ use Gogain\LaravelPhoneVerification\Console\Commands\ExampleCommand;
 use Gogain\LaravelPhoneVerification\Console\Commands\MigrateCommand;
 use Illuminate\Support\Facades\Route;
 
-class LaravelExampleServiceProvider extends ServiceProvider
+class SmsVerificationServiceProvider extends ServiceProvider
 {
     public function boot()
     {
