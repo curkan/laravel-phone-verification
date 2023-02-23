@@ -3,6 +3,7 @@
 namespace Gogain\LaravelPhoneVerification\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Gogain\LaravelPhoneVerification\Console\Commands\ExampleCommand;
 use Illuminate\Support\Facades\Route;
 
 class LaravelExampleServiceProvider extends ServiceProvider
@@ -16,9 +17,13 @@ class LaravelExampleServiceProvider extends ServiceProvider
                 __DIR__ . '/../../config/sms-verification.php' => config_path('sms-verification.php'),
             ]);
 
-            $this->configureRoutes();
+            $this->commands([
+                ExampleCommand::class,
+            ]);
         }
 
+        $this->configureRoutes();
+        // $this->loadRoutesFrom(__DIR__ . '/../../routes/api.php');
     }
     /**
      * Configure the routes offered by the application.
@@ -29,7 +34,7 @@ class LaravelExampleServiceProvider extends ServiceProvider
     {
         Route::namespace('Gogain\LaravelExampleServiceProvider\Http\Controllers')
              ->group(function () {
-                 $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
+                 $this->loadRoutesFrom(__DIR__.'/../../routes/api.php');
              });
     }
 
