@@ -27,11 +27,11 @@ class SmsController
 
     public function checkCode($code, $phoneNumber)
     {
-        if (empty($code)) {
+        if (is_null($code)) {
             throw new Exception('Code field cannot be empty', 0, null);
         }
 
-        if (empty($phoneNumber)) {
+        if (is_null($phoneNumber)) {
             throw new Exception('Phone field cannot be empty', 0, null);
         }
 
