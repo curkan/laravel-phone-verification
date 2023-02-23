@@ -101,6 +101,7 @@ class CodeProcessor
             Cache::forget($this->cachePrefix . $code);
             throw new Exception('Code expired', 0, null);
         }
+        Cache::forget($this->cachePrefix . $code);
 
         return true;
         // return $phoneCode->update(['status' => true]);
