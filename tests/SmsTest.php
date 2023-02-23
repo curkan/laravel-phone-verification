@@ -20,7 +20,6 @@ class SmsTest extends FeatureTestCase
         FacadesConfig::set('sms-verification.smsaero-apikey', 'testtest123123');
 
         $response = $this->postJson(route('sms-verification', ['phone_number' => '79009009000']));
-        dd($response);
 
         $response->assertStatus(201);
     }
