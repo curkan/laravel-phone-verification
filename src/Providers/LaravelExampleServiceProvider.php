@@ -13,7 +13,7 @@ class LaravelExampleServiceProvider extends ServiceProvider
             $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
             $this->publishes([
-                __DIR__ . '/../../config/example.php' => config_path('example.php'),
+                __DIR__ . '/../../config/sms-verification.php' => config_path('sms-verification.php'),
             ]);
 
             $this->commands([
