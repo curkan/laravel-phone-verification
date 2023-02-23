@@ -23,37 +23,38 @@ class SmsVerification
      */
     public static function sendCode($phoneNumber, SenderInterface $sender)
     {
-        $exceptionClass = null;
-        $expiresAt = null;
-        $response = [];
-
         try {
-            // static::validatePhoneNumber($phoneNumber);
-            $now = time();
+            static::validatePhoneNumber($phoneNumber);
+
+            $phone = Phone::where('phone', $phoneNumber);
+            $resendCode = false;
+
+            if (count($phone->get()) !== 0) {
+                if ($phone->where('status', false)) {
+                    $resendCode = true;
+                } else{
+                    throw ValidationException::withMessages(['Phone already verified']);
+                }
+            }
+
             $codeProcessor = new CodeProcessor();
 
             $code = $codeProcessor->generateCode($phoneNumber);
 
-            // $translationCode = config('sms-verification.message-translation-code');
-
-            // $text = $translationCode
-            //     ? trans($translationCode, ['code' => $code])
-            //     : 'SMS verification code: ' . $code;
-
             $text = 'Код потверждения для регистрации: ' . $code;
-
-            // $senderClassName = config('sms-verification.sender-class', Sender::class);
-            // $sender = $senderClassName::getInstance();
-
 
             $success = $sender->send($phoneNumber, $text, $code);
 
-            $phone = Phone::create([
-                'user_id' => 0,
-                'code' => $code,
-                'status' => 0,
-                'phone' => $phoneNumber
-            ]);
+            if ($resendCode) {
+                $phone->update(['code' => $code]);
+            } else {
+                $phone = Phone::create([
+                    'user_id' => 0,
+                    'code' => $code,
+                    'status' => 0,
+                    'phone' => $phoneNumber
+                ]);
+            }
 
         } catch (\Exception $e) {
             $description = $e->getMessage();
