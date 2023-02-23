@@ -87,7 +87,7 @@ class CodeProcessor
 
         if (is_null($codeValue)) {
             Cache::forget($this->cachePrefix . $code);
-            throw new Exception('Code expired', 0, null);
+            throw new Exception('Code invalid', 0, null);
         }
         Cache::forget($this->cachePrefix . $code);
         Cache::forget($this->cachePrefix . $phoneNumber);

@@ -18,10 +18,12 @@ class SmsController
         }
 
         $result = SmsVerification::sendCode($request->get('phone_number'), $this->getSender());
+        $now = time();
 
         return response()->json([
             'result' => $result,
-            'codeExpired' => CodeProcessor::getLifetime(),
+            'codeLifetime' => CodeProcessor::getLifetime(),
+            'codeExpired' => $now + CodeProcessor::getLifetime(),
         ], 201);
     }
 
