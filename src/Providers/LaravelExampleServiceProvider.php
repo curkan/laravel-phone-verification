@@ -4,6 +4,7 @@ namespace Gogain\LaravelPhoneVerification\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Gogain\LaravelPhoneVerification\Console\Commands\ExampleCommand;
+use Gogain\LaravelPhoneVerification\Console\MigrateCommand;
 use Illuminate\Support\Facades\Route;
 
 class LaravelExampleServiceProvider extends ServiceProvider
@@ -21,6 +22,7 @@ class LaravelExampleServiceProvider extends ServiceProvider
         }
 
         $this->configureRoutes();
+        $this->configureCommands();
         $this->registerMigrations();
     }
     /**
@@ -48,6 +50,19 @@ class LaravelExampleServiceProvider extends ServiceProvider
             $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
         }
     }
+
+    /**
+     * Configure the commands offered by the application.
+     *
+     * @return void
+     */
+    private function configureCommands(): void
+    {
+        $this->commands([
+            MigrateCommand::class,
+        ]);
+    }
+
 
 
 }
