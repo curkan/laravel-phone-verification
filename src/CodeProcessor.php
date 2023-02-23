@@ -83,26 +83,27 @@ class CodeProcessor
      */
     public function validateCode($code, $phoneNumber)
     {
-        $phoneCode = Phone::where('code', $code)
-            ->where('phone', $phoneNumber)
-            ->where('status', false);
+        // $phoneCode = Phone::where('code', $code)
+        //     ->where('phone', $phoneNumber)
+        //     ->where('status', false);
+        //
+        // $dbCode = $phoneCode->get();
 
-        $dbCode = $phoneCode->get();
-
-
-        if (count($dbCode) === 0) {
-            return false;
-        }
+        //
+        // if (count($dbCode) === 0) {
+        //     return false;
+        // }
 
         $codeValue = Cache::get($this->cachePrefix . $code);
 
         if (is_null($codeValue)) {
-            $phoneCode->update(['code' => 0]);
+            // $phoneCode->update(['code' => 0]);
             Cache::forget($this->cachePrefix . $code);
             throw new Exception('Code expired', 0, null);
         }
 
-        return $phoneCode->update(['status' => true]);
+        return true;
+        // return $phoneCode->update(['status' => true]);
     }
 
     /**
