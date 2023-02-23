@@ -29,13 +29,11 @@ class SmsVerification
                 throw ValidationException::withMessages(['You cannot send a message more often than allowed']);
             }
 
-
-
             $phone = Phone::where('phone', $phoneNumber);
             $resendCode = false;
 
             if (count($phone->get()) !== 0) {
-                if ($phone->where('status', false)) {
+                if ($phone->where('status', false)->get()) {
                     $resendCode = true;
                 } else{
                     throw ValidationException::withMessages(['Phone already verified']);
