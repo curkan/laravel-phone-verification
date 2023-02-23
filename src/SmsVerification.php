@@ -2,11 +2,9 @@
 
 namespace Gogain\LaravelPhoneVerification;
 
-use Exception;
 use Gogain\LaravelPhoneVerification\Contracts\SenderInterface;
-use Illuminate\Support\Facades\Log;
-use Gogain\LaravelPhoneVerification\Exceptions\SmsVerificationException;
 use Gogain\LaravelPhoneVerification\Models\Phone;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Validation\ValidationException;
 
 /**
@@ -25,6 +23,13 @@ class SmsVerification
     {
         try {
             static::validatePhoneNumber($phoneNumber);
+            $chachedPhone = Cache::get(static::trimPhoneNumber($phoneNumber));
+
+            if (!is_null($chachedPhone)) {
+                throw ValidationException::withMessages(['You cannot send a message more often than allowed']);
+            }
+
+
 
             $phone = Phone::where('phone', $phoneNumber);
             $resendCode = false;
@@ -114,5 +119,13 @@ class SmsVerification
             throw ValidationException::withMessages(['Incorrect phone number was provided']);
         }
     }
+    /**
+     * @param $phoneNumber
+     * @return string
+     */
+    public static function trimPhoneNumber($phoneNumber){
+        return trim(ltrim($phoneNumber, '+'));
+    }
+
 
 }

@@ -66,6 +66,7 @@ class CodeProcessor
             }
             $code = $randomFunction(pow(10, $this->codeLength - 1), pow(10, $this->codeLength) - 1);
             Cache::put($this->cachePrefix . $code, $this->trimPhoneNumber($phoneNumber), now()->addSeconds($this->secondsLifetime));
+            Cache::put($this->cachePrefix . $this->trimPhoneNumber($phoneNumber), 1, now()->addSeconds($this->secondsLifetime));
         } catch (\Exception $e){
             throw new Exception('Code generation failed', 0, $e);
         }
