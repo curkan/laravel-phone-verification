@@ -41,7 +41,7 @@ class SmsVerification
 
             $code = $codeProcessor->generateCode($phoneNumber);
 
-            $text = 'Код потверждения для регистрации: ' . $code;
+            $text = $code . ' - ваш код подтверждения';
 
             $success = $sender->send($phoneNumber, $text, $code);
 

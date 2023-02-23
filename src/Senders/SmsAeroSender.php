@@ -48,7 +48,6 @@ class SmsAeroSender implements SenderInterface
     public function send($to, $text, $code)
     {
         return $this->sendMessage($to, $text, "FREE SIGN", $code);
-        // return $this->sendMessageTest($to, $text, "FREE SIGN", $code);
     }
 
     public function sendMessage($number, $text, $channel, $code, $dateSend = null, $callbackUrl = null){
@@ -63,32 +62,6 @@ class SmsAeroSender implements SenderInterface
         ]), true);
     }
 
-    public function sendMessageTest($number, $text, $channel, $code, $dateSend = null, $callbackUrl = null) {
-
-        $response = json_decode('{
-            "success": true,
-            "data": [
-                {
-                    "id": 1,
-                    "from": "SMS Aero",
-                    "number": "'.$number.'",
-                    "text": "'.$text.'",
-                    "code": "'.$code.'",
-                    "status": 0,
-                    "extendStatus": "queue",
-                    "channel": "FREE SIGN",
-                    "cost": 1.95,
-                    "dateCreate": 1510656981,
-                    "dateSend": 1510656981
-                }
-                ],
-                "message": null
-            }');
-
-        return response()->json([
-            $response
-        ], 201)->setStatusCode(201);
-    }
     /**
      * Формирование curl запроса
      * @param $url
