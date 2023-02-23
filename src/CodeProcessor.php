@@ -89,6 +89,11 @@ class CodeProcessor
             Cache::forget($this->cachePrefix . $code);
             throw new Exception('Code invalid', 0, null);
         }
+
+        if ($codeValue !== $this->trimPhoneNumber($phoneNumber)) {
+            throw new Exception('Code incorrent', 0, null);
+        }
+
         Cache::forget($this->cachePrefix . $code);
         Cache::forget($this->cachePrefix . $phoneNumber);
         Cache::put('verified' . $this->trimPhoneNumber($phoneNumber), 1, now()->addMinute(5));

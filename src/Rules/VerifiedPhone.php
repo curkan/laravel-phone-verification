@@ -6,7 +6,6 @@ namespace Gogain\LaravelPhoneVerification\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Validator;
 
 final class VerifiedPhone implements Rule
 {
