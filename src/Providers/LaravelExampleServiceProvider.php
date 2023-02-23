@@ -4,7 +4,7 @@ namespace Gogain\LaravelPhoneVerification\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Gogain\LaravelPhoneVerification\Console\Commands\ExampleCommand;
-use Gogain\LaravelPhoneVerification\Console\MigrateCommand;
+use Gogain\LaravelPhoneVerification\Console\Commands\MigrateCommand;
 use Illuminate\Support\Facades\Route;
 
 class LaravelExampleServiceProvider extends ServiceProvider

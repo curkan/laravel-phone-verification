@@ -1,6 +1,6 @@
 <?php
 
-namespace Gogain\LaravelPhoneVerification\Console;
+namespace Gogain\LaravelPhoneVerification\Console\Commands;
 
 use Illuminate\Console\Command;
 
