@@ -47,8 +47,8 @@ class SmsAeroSender implements SenderInterface
      */
     public function send($to, $text, $code)
     {
-        // return $this->sendMessage($to, $text, "FREE SIGN", $code);
-        return $this->sendMessageTest($to, $text, "FREE SIGN", $code);
+        return $this->sendMessage($to, $text, "FREE SIGN", $code);
+        // return $this->sendMessageTest($to, $text, "FREE SIGN", $code);
     }
 
     public function sendMessage($number, $text, $channel, $code, $dateSend = null, $callbackUrl = null){
