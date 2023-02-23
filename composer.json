@@ -21,7 +21,9 @@
     },
     "autoload": {
         "psr-4": {
-          "Gogain\\LaravelPhoneVerification\\": "src/"
+          "Gogain\\LaravelPhoneVerification\\": "src/",
+          "Database\\Factories\\": "database/factories/",
+          "Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
