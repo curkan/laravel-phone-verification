@@ -33,6 +33,7 @@ class LaravelExampleServiceProvider extends ServiceProvider
     private function configureRoutes(): void
     {
         Route::namespace('Gogain\LaravelExampleServiceProvider\Http\Controllers')
+             ->prefix(config('sms-verification.path'))
              ->group(function () {
                  $this->loadRoutesFrom(__DIR__.'/../../routes/api.php');
              });

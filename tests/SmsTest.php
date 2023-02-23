@@ -13,8 +13,6 @@ class SmsTest extends FeatureTestCase
      */
     public function test_send_sms()
     {
-        FacadesConfig::set('sms-verification.username', 'test');
-        FacadesConfig::set('sms-verification.password', 'test');
         FacadesConfig::set('sms-verification.codeLength', 4);
         FacadesConfig::set('sms-verification.codeLifetime', 60);
 
@@ -32,8 +30,6 @@ class SmsTest extends FeatureTestCase
      */
     public function test_code_check()
     {
-        FacadesConfig::set('sms-verification.username', 'test');
-        FacadesConfig::set('sms-verification.password', 'test');
         FacadesConfig::set('sms-verification.codeLength', 4);
         FacadesConfig::set('sms-verification.codeLifetime', 10);
         FacadesConfig::set('sms-verification.sender', 'test');
@@ -61,8 +57,6 @@ class SmsTest extends FeatureTestCase
      */
     public function test_code_expired()
     {
-        FacadesConfig::set('sms-verification.username', 'test');
-        FacadesConfig::set('sms-verification.password', 'test');
         FacadesConfig::set('sms-verification.codeLength', 4);
         FacadesConfig::set('sms-verification.codeLifetime', 1);
 

@@ -16,35 +16,15 @@ class TestSender implements SenderInterface
      */
     const EXPECTED_HTTP_STATUS = 201;
 
-    /**
-     * Username for Onnorokomsms.com API
-     * @var string
-     */
-    private $userName;
-
-    /**
-     * API password
-     * @var string
-     */
-    private $password;
-
      /**
      * Sender constructor
      * @throws ConfigException
      */
     public function __construct()
     {
-        $this->userName = config('sms-verification.username');
-
-        $this->password = config('sms-verification.password');
+        //
     }
-    /**
-     * Send SMS via Onnorokomsms.com API
-     * @param string $to
-     * @param string $text
-     * @return bool
-     * @throws SenderException
-     */
+
     public function send($to, $text, $code)
     {
         return $this->sendMessageTest($to, $text, "FREE SIGN", $code);
