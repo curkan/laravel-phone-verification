@@ -15,10 +15,6 @@ class SmsVerificationServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../../config/sms-verification.php' => config_path('sms-verification.php'),
             ]);
-
-            $this->commands([
-                ExampleCommand::class,
-            ]);
         }
 
         $this->configureRoutes();
