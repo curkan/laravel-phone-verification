@@ -39,7 +39,7 @@
     "extra": {
       "laravel": {
         "providers": [
-          "\\Gogain\\LaravelPhoneVerification\\Providers\\LaravelExampleServiceProvider"
+          "\\Gogain\\LaravelPhoneVerification\\Providers\\SmsVerificationServiceProvider"
         ]
       }
     }
