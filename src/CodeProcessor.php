@@ -91,6 +91,7 @@ class CodeProcessor
         }
         Cache::forget($this->cachePrefix . $code);
         Cache::forget($this->cachePrefix . $phoneNumber);
+        Cache::put('verified' . $this->trimPhoneNumber($phoneNumber), 1, now()->addMinute(5));
 
         return true;
     }
