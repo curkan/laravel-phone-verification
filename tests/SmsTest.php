@@ -39,10 +39,6 @@ class SmsTest extends FeatureTestCase
         $sendCode = $this->postJson(route('sms-verification', ['phone_number' => '79009009000']));
         $code = $sendCode['result']['original'][0]['data'][0]['code'];
 
-        $phone = Phone::factory(['code' => $code, 'phone' => 79009009000])
-            ->count(1)
-            ->create();
-
         $response = $this->postJson(route('sms-verification.check', [
             'code' => $code,
             'number' => '79009009000'
@@ -65,10 +61,6 @@ class SmsTest extends FeatureTestCase
         $sendCode = $this->postJson(route('sms-verification', ['phone_number' => '79009009000']));
         $code = $sendCode['result']['original'][0]['data'][0]['code'];
         sleep(2);
-
-        $phone = Phone::factory(['code' => $code, 'phone' => 79009009000])
-            ->count(1)
-            ->create();
 
         $response = $this->postJson(route('sms-verification.check', [
             'code' => $code,
