@@ -4,7 +4,7 @@ const SENDER_TEST = 'test';
 const SENDER_SMSAERO = 'smsaero';
 
 return [
-    'path' => env('SMS_VERIFACTION_PATH', '/api/v1'),
+    'path' => env('SMS_VERIFACTION_PATH', 'api/v1'),
     'type' => env('SMS_VERIFACTION_TYPE', ''),
     'sender' => env('SMS_SENDER', SENDER_TEST),
     'codeLength' => env('SMS_VERIFACTION_CODELENGTH', 4),
