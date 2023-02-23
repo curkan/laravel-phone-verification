@@ -2,6 +2,7 @@
 
 namespace Gogain\LaravelPhoneVerification\Http\Controllers;
 
+use Exception;
 use Gogain\LaravelPhoneVerification\CodeProcessor;
 use Gogain\LaravelPhoneVerification\Senders\SmsAeroSender;
 use Gogain\LaravelPhoneVerification\SmsVerification;
@@ -12,6 +13,10 @@ class SmsController
 {
     public function send(Request $request)
     {
+        if (is_null($request->get('phone_number'))) {
+            throw new Exception('Phone field cannot be empty', 0, null);
+        };
+
         $result = SmsVerification::sendCode($request->get('phone_number'), $this->getSender());
 
         return response()->json([
